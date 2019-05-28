@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>PRACTICA 1</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-sm-6 col-md-6">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{titulo}}
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                {{subtitulo}}
+                            </h6>
+                            <p class="card-text">
+                                {{contenido}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div  v-if="estado" :class="'estado_desarrollo'">
+                        <input type="text" class="form-control mb-3" @keyup.enter="agregarHabilidad" placeholder="Ingrese una habidad" v-model="nuevaHabilidad">
+                        <input type="text" class="form-control mb-3" @keyup.enter="agregarHabilidad" placeholder="Ingrese descripcion" v-model="nuevodescripcion">
+                        <button @click="agregarHabilidad" class="btn btn-success mb-3">Agregar</button>
+                    </div>
+
+                    <div class="list-group shadow mb-5 bg-white rounded" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                            href="#list-home" role="tab" aria-controls="home">Mis Habilidades</a>
+                        <a v-for="item of objetoHabilidades" class="list-group-item list-group-item-action"
+                            id="list-profile-list" data-toggle="list" href="#list-profile" role="tab"
+                            aria-controls="profile"> <strong>{{item.nombre}}</strong>-{{item.descripcion}} 
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" :style="{width: item.porcentaje+'%'}" aria-valuenow="25"
+                                    aria-valuemin="0" aria-valuemax="100">{{item.porcentaje}}%</div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
