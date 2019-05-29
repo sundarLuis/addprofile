@@ -23,16 +23,13 @@ const app = new Vue({
             this.nuevaHabilidad='',
             this.nuevodescripcion=''
         },
-
-
-
-    },
-    estado(){
-        if (estado = true) {
-            this.estado_desarrollo='d-block'
-        } else {
-            this.estado_desarrollo='d-none'
-        }
+        estado(){
+            if (estado = true) {
+                this.estado_desarrollo='d-block'
+            } else {
+                this.estado_desarrollo='d-none'
+            }
+        },
     },
     created(){
         estado()
